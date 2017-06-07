@@ -1,66 +1,54 @@
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-
+import org.apache.poi.hssf.usermodel.HSSFFont;
+import org.apache.poi.hssf.usermodel.HSSFSheet;
+import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.apache.poi.ss.usermodel.CellStyle;
 import org.apache.poi.ss.usermodel.Font;
 import org.apache.poi.ss.usermodel.Row;
-import org.apache.poi.xssf.usermodel.XSSFFont;
-import org.apache.poi.xssf.usermodel.XSSFSheet;
-import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+
+import dao.ApprenticeModel;
 
 public class Main {
 
-	public static void main(String[] args) throws FileNotFoundException {
-		
-
-		
-		XSSFWorkbook workbook = new XSSFWorkbook();
-		
-		XSSFSheet[] sheets = new XSSFSheet[0];
-		
-		workbook.createSheet();
-		
-		
-		
-		// Create Heading
+	public static void main(String[] args){
 		
 		try{
 			
-			Row rowHeading = sheets[0].createRow(0);
-			rowHeading.createCell(0).setCellValue("Surname");
-			rowHeading.createCell(1).setCellValue("Name");
-			rowHeading.createCell(2).setCellValue("formingdirection");
-			rowHeading.createCell(3).setCellValue("Specialization");
-			rowHeading.createCell(4).setCellValue("Year of Apprenticeship");
+			ApprenticeModel amodel = new ApprenticeModel();
+			HSSFWorkbook workbook = new HSSFWorkbook();
+			HSSFSheet sheet = workbook.createSheet("List Apprentices");
+//Create Heading
+			Row rowHeading = sheet.createRow(0);
+			rowHeading.createCell(0).setCellValue("surname");
+			rowHeading.createCell(1).setCellValue("name");
+			rowHeading.createCell(2).setCellValue("specialization");
+			rowHeading.createCell(4).setCellValue("year of apprenticeship");
 			
-			for(int i = 0; i < 5; i++){
+			for( int i = 0; i<4; i++){
 				
-				CellStyle stylerowHeading = workbook.createCellStyle();
+				CellStyle styleHeading = workbook.createCellStyle();
 				Font font = workbook.createFont();
 				font.setBold(true);
-				font.setFontName(XSSFFont.DEFAULT_FONT_NAME);
-				font.setFontHeightInPoints((short) 11);
-				stylerowHeading.setFont(font);
-				//stylerowHeading.setVerticalAlignment(CellStyle.ALIGN_CENTER);
-				rowHeading.getCell(i).setCellStyle(stylerowHeading);
+				font.setFontName(HSSFFont.FONT_ARIAL);
+				font.setFontHeightInPoints((short) 12);
+				styleHeading.setFont(font);
+//				styleHeading.setVerticalAlignment(CellStyle.ALIGN_CENTER);
+				rowHeading.getCell(i).setCellStyle(styleHeading);
 				
 			}
 			
-			//Save to Excel
+		}catch(Exception e){
 			
-			FileOutputStream out = new FileOutputStream(new File("C:\\Einsatzplan\\Einsatzplan.xls"));
-			workbook.write(out);
-			out.close();
-			workbook.close();
-			System.out.println("Excel written successfully!");
-			
-		} catch (Exception e){
-			
-			System.out.println(e.getMessage());
+			System.err.println("");
 			
 		}
 		
+
+	
+			
+		
+
+			
+			
 	}
 
 }

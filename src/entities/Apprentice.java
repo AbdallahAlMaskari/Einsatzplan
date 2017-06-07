@@ -4,7 +4,6 @@ public class Apprentice {
 	
 	private String surname;
 	private String name;
-	private String formingdirection; //e. g. "Fachinformatiker"
 	private String specialization; //e. g. "FISI"
 	private int yoa; //year of apprenticeship
 	
@@ -24,14 +23,7 @@ public class Apprentice {
 		this.name = name;
 	}
 	
-	public String getFormingdirection() {
-		return formingdirection;
-	}
-	
-	public void setFormingdirection(String formingdirection) {
-		this.formingdirection = formingdirection;
-	}
-	
+		
 	public String getSpecialization() {
 		return specialization;
 	}
@@ -48,12 +40,11 @@ public class Apprentice {
 		this.yoa = yoa;
 	}
 
-	public Apprentice(String surname, String name, String formingdirection, String specialization, int yoa) {
+	public Apprentice(String surname, String name, String specialization, int yoa) {
 		
 		super();
 		this.surname = surname;
 		this.name = name;
-		this.formingdirection = formingdirection;
 		this.specialization = specialization;
 		this.yoa = yoa;
 		
