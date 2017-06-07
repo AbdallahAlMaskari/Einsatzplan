@@ -1,3 +1,6 @@
+import java.io.File;
+import java.io.FileOutputStream;
+
 import org.apache.poi.hssf.usermodel.HSSFFont;
 import org.apache.poi.hssf.usermodel.HSSFSheet;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
@@ -16,7 +19,9 @@ public class Main {
 			ApprenticeModel amodel = new ApprenticeModel();
 			HSSFWorkbook workbook = new HSSFWorkbook();
 			HSSFSheet sheet = workbook.createSheet("List Apprentices");
+			
 //Create Heading
+			
 			Row rowHeading = sheet.createRow(0);
 			rowHeading.createCell(0).setCellValue("surname");
 			rowHeading.createCell(1).setCellValue("name");
@@ -36,19 +41,18 @@ public class Main {
 				
 			}
 			
+//Save to Excel
+			
+			FileOutputStream out = new FileOutputStream(new File("C:\\Users\\AbAl-Mas\\Desktop\\EinsatzplanTest\\einsatzplantest.xls"));
+			workbook.write(out);
+			out.close();
+			workbook.close();
+			System.out.println("excel written successfully");
+			
 		}catch(Exception e){
 			
-			System.err.println("");
+			System.err.println("an error has occurred (Main.java)");
 			
 		}
-		
-
-	
-			
-		
-
-			
-			
 	}
-
 }
