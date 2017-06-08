@@ -16,8 +16,6 @@ public class Main {
 		
 		try{
 			
-			
-			
 			ApprenticeModel amodel = new ApprenticeModel();
 			HSSFWorkbook workbook = new HSSFWorkbook();
 			HSSFSheet sheet = workbook.createSheet("List Apprentices");
@@ -39,11 +37,8 @@ public class Main {
 				font.setFontHeightInPoints((short) 12);
 				styleHeading.setFont(font);
 //				styleHeading.setVerticalAlignment(CellStyle.ALIGN_CENTER);
-				//PROBLEM BELOW
-//				rowHeading.getCell(i).setCellStyle(styleHeading);
 				
 			}
-
 			
 //Save to Excel
 			
@@ -51,12 +46,13 @@ public class Main {
 			workbook.write(out);
 			out.close();
 			workbook.close(); 
-			System.out.println("excel written successfully on ");
+			System.out.println("excel written successfully");
 			
-		}catch(Exception e){
-			e.printStackTrace();
-			System.err.println("an error has occurred (Main.java)");
+			}catch(Exception e){
+				
+				e.printStackTrace();
+				System.err.println("an error has occurred (Main.java)");
 			
-		}
+			}
 	}
 }
