@@ -36,6 +36,7 @@ public class Main {
 				font.setFontName(HSSFFont.FONT_ARIAL);
 				font.setFontHeightInPoints((short) 12);
 				styleHeading.setFont(font);
+				sheet.autoSizeColumn(i);
 //				styleHeading.setVerticalAlignment(CellStyle.ALIGN_CENTER);
 				
 			}
