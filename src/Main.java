@@ -51,7 +51,7 @@ public class Main {
 			workbook.write(out);
 			out.close();
 			workbook.close(); 
-			System.out.println("excel written successfully on " + out);
+			System.out.println("excel written successfully on ");
 			
 		}catch(Exception e){
 			e.printStackTrace();
