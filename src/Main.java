@@ -7,6 +7,7 @@ import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.apache.poi.ss.usermodel.CellStyle;
 import org.apache.poi.ss.usermodel.Font;
 import org.apache.poi.ss.usermodel.Row;
+import org.apache.poi.ss.util.CellRangeAddress;
 
 import dao.ApprenticeModel;
 
@@ -21,13 +22,30 @@ public class Main {
 			HSSFSheet sheet = workbook.createSheet("List Apprentices");
 			
 //Create Heading
+//First Row
 			
-			Row rowHeading = sheet.createRow(0);
-			rowHeading.createCell(0).setCellValue("surname");
-			rowHeading.createCell(1).setCellValue("name");
-			rowHeading.createCell(2).setCellValue("specialization");
-			rowHeading.createCell(4).setCellValue("year of apprenticeship");
+			Row yoa = sheet.createRow(0);
+			yoa.createCell(0).setCellValue("1. Ausbildungsjahr");
+			yoa.createCell(3).setCellValue("2. Ausbildungsjahr");
+			yoa.createCell(6).setCellValue("3. Ausbildungsjahr");
 			
+			sheet.addMergedRegion(new CellRangeAddress(
+					0,0,0,1
+			));
+			sheet.addMergedRegion(new CellRangeAddress(
+					0,0,3,4
+			));
+			sheet.addMergedRegion(new CellRangeAddress(
+					0,0,6,7
+			));
+			
+			
+//Second Row
+			
+			Row specialization = sheet.createRow(1);
+			specialization.createCell(0).setCellValue("FISI");
+			specialization.createCell(1).setCellValue("FIAE");
+	
 			for( int i = 0; i<4; i++){
 				
 				CellStyle styleHeading = workbook.createCellStyle();
