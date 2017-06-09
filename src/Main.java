@@ -45,8 +45,16 @@ public class Main {
 			Row specialization = sheet.createRow(1);
 			specialization.createCell(0).setCellValue("FISI");
 			specialization.createCell(1).setCellValue("FIAE");
-	
-			for( int i = 0; i<4; i++){
+			
+//Third Row
+			
+			Row apprentices = sheet.createRow(2);
+			apprentices.createCell(0).setCellValue("Abdallah");
+			apprentices.createCell(1).setCellValue("Kinan");
+			
+//Style
+			
+			for( int i = 0; i<7; i++){
 				
 				CellStyle styleHeading = workbook.createCellStyle();
 				Font font = workbook.createFont();
@@ -55,7 +63,6 @@ public class Main {
 				font.setFontHeightInPoints((short) 12);
 				styleHeading.setFont(font);
 				sheet.autoSizeColumn(i);
-//				styleHeading.setVerticalAlignment(CellStyle.ALIGN_CENTER);
 				
 			}
 			
